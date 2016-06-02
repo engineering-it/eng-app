@@ -1,0 +1,21 @@
+<div flex class="eng-field eng-file-field">
+
+    <label>{{label()}}</label>
+
+    <div flex layout="row" layout-align="start center" class="eng-field-body" >
+
+        <img class="eng-file-img-preview" ng-src="{{getValue()}}">
+        &nbsp;&nbsp;
+        <span flex flex-grow></span>
+        <!--md-progress-linear md-mode="determinate" value="{{progress}}"></md-progress-linear-->
+        <input type="file" class="fileInput" accept="image/*" style="display:none;">
+
+        <md-button ng-click="onFileClick()"
+                   ng-disabled="isFieldReadonly()"
+                   class="md-icon-button" >
+            <md-icon ng-md-icon icon="search"></md-icon>
+        </md-button>
+
+    </div>
+    <div class="hint">{{fieldModel.propertyHints}}</div>
+</div>

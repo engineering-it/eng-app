@@ -1,0 +1,63 @@
+
+<md-tabs flex layout-fill md-border-bottom md-autoselect class="eng-field-type-editor">
+    <md-tab label="Generali">
+
+        <div layout-padding>
+        <eng-text-field
+                field-model="{
+                    propertyName: 'propertyName',
+                    propertyLabel: 'Nome',
+                    propertyHints: 'Nome della Proprietà dell\'Entità'
+                }"
+                bean-model="propertyModel">
+        </eng-text-field>
+
+        <eng-text-field
+                field-model="{
+                    propertyName: 'propertyLabel',
+                    propertyLabel: 'Label',
+                    propertyHints: 'Label Visualizzata'
+                }"
+                bean-model="propertyModel">
+        </eng-text-field>
+
+        <eng-text-field
+                field-model="{
+                    propertyName: 'propertyHints',
+                    propertyLabel: 'Hints',
+                    propertyHints: 'Breve testo a supporto'
+                }"
+                bean-model="propertyModel">
+        </eng-text-field>
+
+        <eng-boolean-field
+                field-model="{
+                    propertyName: 'readonly',
+                    propertyLabel: 'Readonly',
+                    propertyHints: 'Proprietà non editabile'
+                }"
+                bean-model="propertyModel">
+        </eng-boolean-field>
+        </div>
+
+    </md-tab>
+    <md-tab label="Tipo">
+
+        <div layout-padding>
+        <eng-choice-field
+                field-model="{
+                    propertyName: 'propertyType',
+                    propertyLabel: 'Tipo di campo',
+                    propertyHints: 'Tipologia del campo di edit della proprietà',
+                    choicesValues: propertyTypes
+                }"
+                bean-model="propertyModel">
+        </eng-choice-field>
+
+        <eng-include directive="{{propertyTypeConfigDirective}}"
+                     include-attr-property-model="propertyModel">
+        </eng-include>
+        </div>
+
+    </md-tab>
+</md-tabs>

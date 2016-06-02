@@ -1,0 +1,64 @@
+<md-list>
+
+    <md-list-item class="std-list-item md-3-line"
+                  ng-repeat="item in pageItems"
+                  ng-click="itemAction(item,'open')">
+
+        <div layout="row" flex layout-align="start start" class="std-list-item-row">
+
+			<eng-display-item-img 
+				item="item" 
+				img-src-fn="itemImgSrcFn(item)"
+				activity="activity">
+			</eng-display-item-img>
+
+            <div class="std-list-item-content md-list-item-text" flex layout="column">
+                <div class="std-list-item-header">
+                    <md-icon ng-if="itemIconProperty(item)" ng-md-icon icon="{{itemIconValue(item)}}"></md-icon>
+                    <h3 eng-display-entity-property
+                        entity-bean="item"
+                        entity-model="entityDef"
+                        property-name="itemTitleProperty(item)" >
+                    </h3>
+                    <h4 eng-display-entity-property
+                        entity-bean="item"
+                        entity-model="entityDef"
+                        property-name="itemSubtitleProperty(item)"  >
+                    </h4>
+                </div>
+                <div class="std-list-item-body">
+                    <p>
+                        <span eng-display-entity-property
+                            ng-repeat="property in itemProperties(item)"
+                            entity-bean="item"
+                            entity-model="entityDef"
+                            property-name="property"
+                            show-label="true"
+                            style="margin-right:10px;"
+                        />
+                    </p>
+                </div>
+            </div>
+
+            <div layout="row" layout-align="end end" ng-click="$event.stopPropagation()" class="list-item-actions">
+
+                <md-checkbox ng-if="itemsSelectable()" ng-model="item._selected">
+                </md-checkbox>
+
+                <md-button ng-repeat="itemAct in getItemActions(item)"
+                           ng-hide="itemAct.mainAction"
+                           ng-class="itemAct.class"
+                           ng-click="itemAction(item,itemAct.name,itemAct)"
+                           ng-if="isItemActionVisible(item,itemAct)"
+                           ng-disabled="isItemActionDisabled(item,itemAct)">
+                    <md-icon ng-md-icon icon="{{itemAct.icon}}"></md-icon>
+                    <md-tooltip md-direction="left">{{itemAct.tooltip}}</md-tooltip>
+                </md-button>
+
+            </div>
+        </div>
+
+        <md-divider></md-divider>
+    </md-list-item>
+
+</md-list>

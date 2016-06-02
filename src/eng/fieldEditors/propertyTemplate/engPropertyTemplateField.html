@@ -1,0 +1,26 @@
+<eng-list-field
+    field-model="{
+        propertyName: fieldModel.propertyName,
+        propertyLabel: fieldModel.propertyLabel,
+        propertyHints: fieldModel.propertyHints,
+        propertyType: 'ARRAY',
+        sortable: true
+    }"
+    bean-model="beanModel">
+    
+    <div layout-padding>
+    
+	    <eng-single-property-template-field
+	    	field-model="{
+	    		propertyName: 'template',
+		        propertyLabel: 'Template',
+		        sourceEntity: $parent.$parent.fieldModel.sourceEntity
+	    	}"
+	    	bean-model="engListFieldElement"
+	    	
+	    	>
+	    </eng-single-property-template-field>
+    
+    </div>
+    
+</eng-list-field>

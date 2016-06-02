@@ -1,0 +1,37 @@
+
+<md-content flex
+            class="md-padding"
+            layout="row"
+            layout-wrap
+            layout-align="center start"
+            layout-xs="column">
+
+
+    <div ng-repeat="item in homeMenu"	         
+         ng-if="showInHomePage(item)"
+         flex="25" flex-sm="100" flex-xs="100"
+         layout="column">
+
+        <md-card ng-click="navigate(item)">
+            <img ng-src="{{pageImgSrc(item)}}"
+                 class="md-card-image"
+                 style="border-bottom: 1px solid rgba(128, 128, 128, 0.4); height:auto !important;"
+            >
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{item.title}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>{{item.subTitle}}</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary">
+                    Esplora
+                </md-button>
+            </md-card-actions>
+        </md-card>
+
+    </div>
+
+</md-content>

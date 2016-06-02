@@ -1,0 +1,45 @@
+
+<eng-form flex layout-fill style="overflow:auto">
+
+    <field-editor
+            property-model="{
+                propertyName:'name',
+                propertyLabel: 'Nome',
+                propertyHints: 'Nome univoco dell\'entità (per convenzione al plurale, es: users,patients)',
+                isEntityKey: true
+            }"
+            bean-model="editItem">
+    </field-editor>
+
+    <field-editor
+            property-model="{
+                propertyName:'description',
+                propertyLabel: 'Descrizione',
+                propertyHints: 'Breve descrizione dell\'entità'
+            }"
+            bean-model="editItem">
+    </field-editor>
+
+    <eng-list-field
+            field-model="{
+                propertyName:'properties',
+                propertyLabel: 'Proprietà',
+                propertyHints: 'Proprietà dell\'entità',
+                elementEditActivity: 'entityPropertyEdit',
+                elementTemplate: '{{element.propertyName}} - {{element.propertyLabel}} - {{element.propertyType}}',
+                sortable: true
+            }"
+            bean-model="editItem">
+    </eng-list-field>
+
+    <eng-code-edit-field
+        field-model="{
+            propertyName: 'titleTpl',
+            propertyLabel: 'Title Template',
+            propertyHints: 'Template usato per renderizzare il titolo dell\'entità (riferisci l\'entità con \'editItem\')',
+            codeType: 'html'
+        }"
+        bean-model="editItem">
+    </eng-code-edit-field>
+
+</eng-form>

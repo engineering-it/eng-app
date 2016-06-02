@@ -1,0 +1,12 @@
+<md-input-container flex
+                    class="md-block"
+                    ng-class="md-no-icon-left">
+    <md-switch
+            ng-readonly="isFieldReadonly()"
+            ng-disabled="isFieldReadonly()"
+            ng-model="value"
+            ng-model-options="{ getterSetter: true }">
+        {{label()}}
+    </md-switch>
+    <div class="hint">{{fieldModel.propertyHints}}</div>
+</md-input-container>

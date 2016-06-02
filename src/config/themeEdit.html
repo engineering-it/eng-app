@@ -1,0 +1,54 @@
+
+<eng-form name="editForm" flex layout-fill>
+
+	<field-editor
+           property-model="{
+           		propertyName: 'name',
+           		propertyLabel: 'Nome',
+           		propertyHints: 'Nome del tema'
+           }"
+           bean-model="editItem">
+   	</field-editor>
+
+	<field-editor
+           property-model="{
+           		propertyName: 'primaryPalette',
+           		propertyLabel: 'Palette primaria',
+           		propertyHints: 'Imposta la palette per gli elementi primari del tema'
+           }"
+           bean-model="editItem">
+   	</field-editor>
+
+	<field-editor
+           property-model="{
+           		propertyName: 'accentPalette',
+           		propertyLabel: 'Palette secondaria',
+           		propertyHints: 'Imposta la palette per gli elementi secondari del tema'
+           }"
+           bean-model="editItem">
+   	</field-editor>
+
+	<field-editor
+           property-model="{
+           		propertyName: 'warnPalette',
+           		propertyLabel: 'Palette di warning',
+           		propertyHints: 'Imposta la palette per gli elementi di warning del tema'
+           }"
+           bean-model="editItem">
+   	</field-editor>
+
+	<field-editor
+           property-model="{
+           		propertyName: 'dark',
+           		propertyLabel: 'Dark',
+           		propertyHints: 'Imposta il tema in modalità dark',
+           		propertyType: 'BOOLEAN'
+           }"
+           bean-model="editItem">
+   	</field-editor>
+
+</eng-form>
+
+
+
+

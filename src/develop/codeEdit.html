@@ -1,0 +1,41 @@
+<eng-form flex layout-fill layout="column">
+
+    <field-editor
+            property-model="{
+                    propertyName: 'name',
+                    propertyLabel: 'Nome',
+                    propertyHints: 'nome univoco della risorsa'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+    <field-editor
+            property-model="{
+                    propertyName:'description',
+                    propertyLabel: 'Descrizione',
+                    propertyHints: 'Breve descrizione del contenuto della risorsa'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+    <eng-code-edit-field
+         field-model="{
+            propertyName: 'content',
+            propertyLabel: 'Contenuto',
+            propertyHints: 'Contenuto js della risorsa',
+            codeType: 'javascript'
+         }"
+         bean-model="editItem">
+    </eng-code-edit-field>
+
+    <field-editor
+            property-model="{
+                    propertyName:'published',
+                    propertyLabel: 'Pubblicato',
+                    propertyHints: 'Gli script pubblicati sono inclusi nell\'applicazione',
+                    propertyType: 'BOOLEAN'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+</eng-form>

@@ -1,0 +1,66 @@
+<eng-lookup-field
+        field-model="{
+                propertyName: 'refEntityName',
+                propertyLabel: 'Entità riferita',
+                propertyHints: 'Entità riferita dal lookup',
+                refEntityName: 'entities',
+                refEntityListActivity: 'entitiesList',
+                lookupKey: 'name',
+                lookupShowedProperty: 'name'
+            }"
+        bean-model="propertyModel">
+</eng-lookup-field>
+
+<eng-lookup-field
+        field-model="{
+                propertyName: 'refEntityListActivity',
+                propertyLabel: 'Activity di scelta',
+                propertyHints: 'Activity usata per la scelta del valore',
+                refEntityName: 'activities',
+                refEntityListActivity: 'activitiesList',
+                lookupKey: 'name',
+                lookupShowedProperty: 'name'
+            }"
+        bean-model="propertyModel">
+</eng-lookup-field>
+
+<eng-lookup-field
+        field-model="{
+                propertyName: 'refEntityViewActivity',
+                propertyLabel: 'Activity di visualizzazione dell\'elemento',
+                propertyHints: 'Activity usata per la visualizzazione del valore (una editActivity)',
+                refEntityName: 'activities',
+                refEntityListActivity: 'activitiesList',
+                lookupKey: 'name',
+                lookupShowedProperty: 'name'
+            }"
+        bean-model="propertyModel">
+</eng-lookup-field>
+
+<eng-text-field
+        field-model="{
+                propertyName: 'lookupKey',
+                propertyLabel: 'LookupKey',
+                propertyHints: 'Campo dell\'entità referenzianta da memorizzare come riferimento (default \'id\')'
+            }"
+        bean-model="propertyModel">
+</eng-text-field>
+
+<field-editor
+        property-model="{
+                    propertyName: 'lookupShowedProperty',
+                    propertyLabel: 'Proprietà Visualizzata',
+                    propertyHints: 'Campo dell\'entità referenzianta da visualizzare nella maschera',
+                    propertyType: 'CHOICE',
+                    choicesValues: entityProperties
+                }"
+        bean-model="propertyModel">
+</field-editor>
+
+<eng-boolean-field
+        field-model="{
+                propertyName: 'multiple',
+                propertyLabel: 'Valori Multipli'
+            }"
+        bean-model="propertyModel">
+</eng-boolean-field>

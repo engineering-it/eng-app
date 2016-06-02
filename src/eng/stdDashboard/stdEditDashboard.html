@@ -1,0 +1,28 @@
+<eng-form flex layout-fill>
+
+    <eng-list-field
+            field-model="{
+                propertyName:'tiles',
+                propertyLabel: 'Elementi',
+                propertyHints: 'Elementi presenti nella Dashboard',
+                propertyType: 'ARRAY',
+                elementTemplate: '{{element.activityName}} - {{element.span.col}} - {{element.span.row}}',
+                itemBean: {
+                    properties: [{
+                        propertyName:'span.col',
+                        propertyLabel: 'Larghezza',
+                        propertyHints: 'Larghezza elemento',
+                        propertyType: 'NUMBER'
+                    },{
+                        propertyName:'span.row',
+                        propertyLabel: 'Altezza',
+                        propertyHints: 'Altezza elemento',
+                        propertyType: 'NUMBER'
+                    }]
+                }
+            }"
+            bean-model="editItem">
+    </eng-list-field>
+
+
+</eng-form>

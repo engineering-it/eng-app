@@ -1,0 +1,35 @@
+
+<md-content layout="column" flex layout-padding>
+
+        <p>
+            Page di tipo: {{activity.page.pageDef.name}}<br>
+            Istanza di Page: {{activity.page.id}}<br>
+            Activity di tipo: {{activity.activityDef.name}}<br>
+            Istanza di Activity: {{activity.id}}
+        </p>
+
+    <md-button class="md-primary" ng-click="engApplication.openRootPage('testPage')">
+        Open Page testPage as Root
+        <md-icon ng-md-icon icon="signal_cellular_connected_no_internet_0_bar" >
+        </md-icon>
+    </md-button>
+
+    <md-button class="md-primary" ng-click="engApplication.openPage('testPage')">
+        Open Page testPage
+        <md-icon ng-md-icon icon="signal_cellular_connected_no_internet_0_bar" >
+        </md-icon>
+    </md-button>
+
+    <md-button class="md-primary" ng-click="engApplication.openRootActivity('act1')">
+        Open Activity act1 as PageRoot
+        <md-icon ng-md-icon icon="signal_cellular_connected_no_internet_0_bar" >
+        </md-icon>
+    </md-button>
+
+    <md-button class="md-primary" ng-click="engApplication.openActivity('act1')">
+        Open Activity act1
+        <md-icon ng-md-icon icon="signal_cellular_connected_no_internet_0_bar" >
+        </md-icon>
+    </md-button>
+
+</md-content>

@@ -1,0 +1,23 @@
+<md-toolbar class="md-theme-light">
+    <div class="md-toolbar-tools">
+        <md-button ng-click="toggleApplicationMenu()" class="md-icon-button">
+            <md-icon ng-md-icon icon="home"></md-icon>
+            <md-tooltip md-direction="right">Application Menu</md-tooltip>
+        </md-button>
+        <md-button ng-click="toggleSearchMenu()" class="md-icon-button">
+            <md-icon ng-md-icon icon="search"></md-icon>
+            <md-tooltip md-direction="right">Ricerca in tutta l'applicazione</md-tooltip>
+        </md-button>
+        <md-button ng-click="toggleProfileMenu()" class="md-icon-button">
+            <md-icon ng-md-icon icon="person"></md-icon>
+            <md-tooltip md-direction="right">Profilo Utente</md-tooltip>
+        </md-button>
+        <span flex></span>
+        <!--md-button ng-if="isLogged()"
+                   ng-click="logout()"
+                   class="md-icon-button md-accent">
+            <md-icon ng-md-icon icon="logout"></md-icon>
+            <md-tooltip>Logout</md-tooltip>
+        </md-button-->
+    </div>
+</md-toolbar>

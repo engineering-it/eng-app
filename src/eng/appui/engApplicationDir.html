@@ -1,0 +1,25 @@
+<div md-theme="{{engApplication.currentTheme}}" md-theme-watch="true" flex layout-fill layout="column">
+    <eng-application-toolbar></eng-application-toolbar>
+
+    <div layout="row" flex >
+
+        <md-sidenav layout="column"
+                    md-is-locked-open="appMenuLockOpened"
+                    md-is-open="appMenuOpened"
+                    class="md-sidenav-left md-whiteframe-z2">
+
+            <eng-application-main-menu is-fixed="appMenuLockOpened" flex flex-grow layout="column">
+            </eng-application-main-menu>
+
+        </md-sidenav>
+
+        <div layout="column" flex id="content" >
+        </div>
+
+    </div>
+
+    <div id="printContentElement" class="printContent">
+        print content
+    </div>
+</div>
+

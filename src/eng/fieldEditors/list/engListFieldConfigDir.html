@@ -1,0 +1,53 @@
+
+<eng-lookup-field
+        field-model="{
+                propertyName: 'elementEditActivity',
+                propertyLabel: 'Edit Item Activity',
+                propertyHints: 'Activity usata per l\'edit di un Item della lista (ha precedenza sulla definizione di un \'item bean\')',
+                refEntityName: 'activities',
+                refEntityListActivity: 'activitiesList',
+                lookupKey: 'name',
+                lookupShowedProperty: 'name'
+            }"
+        bean-model="propertyModel">
+</eng-lookup-field>
+
+<field-editor
+        property-model="{
+                propertyName: 'elementTemplate',
+                propertyLabel: 'Element Template',
+                propertyHints: 'Template usato per visualizzare ogni elemento della lista (riferisci l\'elemento con \'element\')',
+                propertyType: 'CODE',
+                codeType: 'html'
+            }"
+        bean-model="propertyModel">
+</field-editor>
+
+<eng-list-field
+        field-model="{
+                propertyName:'itemBean.properties',
+                propertyLabel: 'ItemBean Properties',
+                propertyHints: 'Proprietà dell\' ItemBean',
+                elementEditActivity: 'entityPropertyEdit',
+                elementTemplate: '{{element.propertyName}} - {{element.propertyLabel}} - {{element.propertyType}}'
+            }"
+        bean-model="propertyModel">
+</eng-list-field>
+
+<eng-boolean-field
+        field-model="{
+                propertyName: 'enableDefaultElement',
+                propertyLabel: 'Default element',
+                propertyHints: 'Abilita la gestione di un elemento di default sulla lista (selezione automatica in assenza di selezione manuale)'
+            }"
+        bean-model="propertyModel">
+</eng-boolean-field>
+
+<eng-boolean-field
+        field-model="{
+                propertyName: 'sortable',
+                propertyLabel: 'Sortable',
+                propertyHints: 'Abilita la possibilità di ordinare gli elementi della lista'
+            }"
+        bean-model="propertyModel">
+</eng-boolean-field>

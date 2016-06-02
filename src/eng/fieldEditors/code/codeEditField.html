@@ -1,0 +1,30 @@
+
+<section class="code-field-container md-whiteframe-z1 eng-field">
+
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <h2>{{label()}}</h2>
+            <span class="list-field-hints">{{ fieldModel.propertyHints }}</span>
+            <span flex></span>
+
+            <md-button ng-click="toggleMaximize()"
+                       class="md-icon-button" >
+                <md-icon ng-md-icon icon="fullscreen"></md-icon>
+                <md-tooltip>Espandi/Riduci</md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content>
+
+        <div ui-ace="{onLoad:aceLoaded}"
+             class="aceEditorDiv"
+             ng-model="value"
+             ng-model-options="{ getterSetter: true }"
+             style="height: 150px;">
+        </div>
+
+    </md-content>
+
+</section>
+

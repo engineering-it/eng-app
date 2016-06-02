@@ -1,0 +1,485 @@
+html,
+body {
+    overflow: hidden;
+}
+
+eng-application {
+    display: flex;
+}
+
+.loaderBar {
+    position: absolute;
+    z-index: 100;
+}
+
+md-icon svg {
+    display: block !important;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+.no-padding-subheader.md-subheader .md-subheader-inner {
+    padding: 0px;
+}
+md-input-container.input-bottom {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+md-input-container.toolbar-input {
+    height: 35px;
+    margin: 0px;
+    font-size: 15pt;
+}
+md-input-container.toolbar-input md-select {
+    font-size: 13pt;
+}
+
+
+md-input-container.toolbar-input input,
+md-input-container.toolbar-input md-select,
+md-input-container.toolbar-input md-select:focus .md-select-value {
+    color: rgba(255,255,255,0.87);
+}
+
+md-input-container.inline-container {
+	margin: 0px;
+    padding: 0px;
+}
+md-input-container.inline-container > input {
+	border-bottom: none;
+}
+md-input-container > .md-errors-spacer {
+	display: none;
+}
+
+.md-toolbar-tools > md-datepicker {
+    color: rgba(255,255,255,0.87);
+    background-color: transparent;
+}
+.md-toolbar-tools > md-datepicker input {
+    color: rgba(255,255,255,0.87);
+}
+.toolbar-tools-label {
+	margin: 0 6px;
+}
+
+md-list-item md-divider[md-inset].double-inset {
+    left: 50%;
+}
+
+.md-toolbar-tools.app-toolbar {
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.md-toolbar-tools.app-toolbar > button {
+    min-width: 40px;
+}
+
+md-chips.no-line .md-chips {
+    box-shadow: none;
+}
+
+md-tab-content > div {
+    height: 100%;
+}
+
+.upper-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.bottom-icon {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.printContent {
+    display: none;
+}
+
+.icon-64 {
+    height: 64px !important;
+    width: 64px !important;
+}
+.male-color {
+    color: rgb(63,81,181);
+}
+.female-color {
+    color: rgb(197,17,98);
+}
+.green-color {
+    color: rgb(11, 204, 11);
+}
+
+@media print {
+    fm-application > md-toolbar ,
+    fm-application > div.layout-row {
+        display: none;
+    }
+    fm-application > div.printContent {
+        display: block;
+    }
+    fm-application > div.printContent {
+        font-family: "Courier New";
+    }
+}
+
+.wide-sidenav {
+    width: 90%;
+    max-width: 5000px;
+}
+.wide-sidenav > md-content {
+    overflow-x: hidden;
+}
+
+.photo-img {
+    width: 64px;
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 32px;
+    border-radius: 5px;
+}
+
+.userIconImg {
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+md-sidenav.wide100 {
+    min-width: 100% !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+}
+
+md-sidenav.wide {
+    min-width: 70% !important;
+    width: 70% !important;
+    max-width: 1200px !important;
+}
+
+
+md-input-container.md-no-icon-left {
+    padding-left: 0px !important;
+}
+md-input-container.md-no-icon-left>label {
+    left: 0px !important;
+}
+md-input-container md-icon.icon-right {
+    margin: 0 !important;
+    right: 2px !important;
+    left: auto !important;
+}
+
+eng-form {
+    overflow: auto;
+    position: relative;
+}
+eng-form form.eng-form {
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    flex: 1;
+}
+.eng-form-row {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.eng-field > .hint,
+md-input-container > .hint {
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    color: grey;
+}
+.list-field-hints {
+    margin-left: 1em;
+    font-size: smaller;
+    font-style: italic;
+}
+
+div.eng-field {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+div.field-editor {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.eng-field > md-input-container,
+.field-editor > md-input-container {
+    margin-bottom: 0px;
+}
+
+.lookup-chips {
+    padding: 0px;
+}
+.lookup-chips .md-chip {
+    margin: 4px 4px 0px;
+}
+.lookup-chips .md-chips,
+.lookup-chips.md-chips {
+    padding: 0px;
+}
+.lookup-chips input {
+    padding: 2px 2px 1px;
+    line-height: 26px;
+    height: 30px;
+    border-radius: 0;
+    float: left;
+}
+
+.lookup-chips md-chip {
+    position: relative;
+    margin: 4px 0px;
+}
+.lookup-chips md-chip ._md-chip-remove-container {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    margin-right: 0;
+    height: 24px;
+}
+.lookup-chips md-chip ._md-chip-remove-container button {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    transition: background 0.15s linear;
+    display: block;
+}
+.lookup-chips md-chip ._md-chip-remove-container button md-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(0.7);
+    color: white;
+    fill: white;
+}
+.lookup-chips md-chip ._md-chip-remove-container button:hover,
+.lookup-chips .custom-chips md-chip ._md-chip-remove-container button:focus {
+    background: rgba(255, 0, 0, 0.8);
+}
+.lookup-chips md-chip:not(.md-readonly) md-chip-template {
+    padding-right: 5px;
+}
+
+
+
+
+.code-field-container,
+.list-field-container {
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.code-field-container > md-content,
+.list-field-container > md-content {
+    border-radius: 4px;
+}
+.code-field-container > md-toolbar,
+.list-field-container > md-toolbar {
+    border-radius: 4px 4px 0px 0px;
+    zoom: 0.8;
+}
+
+.code-field-maximized {
+}
+
+
+.list-item-actions > md-checkbox {
+    margin-bottom: 0px !important;
+}
+.list-item-actions > .md-button {
+    margin: 0px 6px !important;
+}
+
+
+eng-std-list-view > md-list {
+    padding: 0px;
+}
+.std-list-item-row {
+	overflow: hidden;
+}
+.std-list-item-header {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.std-list-item-header h3,
+.std-list-item-header h4 {
+    display: inline;
+}
+.std-list-item-header h3 {
+    margin-right: 2em !important;
+}
+.std-list-item-header h4 {
+    font-style: italic;
+    font-size: smaller;
+}
+.std-list-item-body {
+    --padding-bottom: 10px;
+}
+.std-list-item .list-item-actions {
+    align-self: flex-end;
+}
+
+.std-list-item .eng-item-img {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+
+md-list-item.item-selected {
+    background-color: rgb(255,87,34);
+    color: rgb(255,255,255);
+}
+md-list-item.item-selected md-icon {
+    color: rgb(255,255,255);
+}
+
+.std-badge {
+    outline: none;
+    border-radius: 10px;
+}
+.std-badge > md-toolbar {
+    border-radius: 10px 10px 0px 0px;
+}
+.std-badge md-toolbar {
+    zoom: 0.8;
+}
+.std-badge .subheader {
+    font-style: italic;
+    font-size: smaller;
+}
+.std-badge .std-badge-body {
+    height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.eng-item-img {
+    border-radius: 50%;
+    border: 1px solid gray;
+    height: 50px;
+    width: 50px;
+}
+.std-badge-body .eng-item-img {
+    height: auto;
+    width: auto;
+}
+.std-badge-body {
+    font-size: smaller;
+}
+
+.eng-number-input {
+    width: 50px !important;
+}
+
+md-input-container.md-input-has-value-always label:not(.md-no-float) {
+    transform: translate3d(0,6px,0) scale(.75) !important;
+}
+
+.eng-file-field,
+.eng-lookup-field {
+    margin: 18px 0px;
+}
+.eng-file-field > .eng-field-body,
+.eng-lookup-field > .eng-field-body {
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.eng-lookup-field ._md-chip-input-container {
+    display:none;
+}
+
+md-input-container.md-default-theme label,
+md-input-container label,
+md-input-container.md-default-theme .md-placeholder,
+md-input-container .md-placeholder {
+    color: currentColor;
+}
+::-webkit-input-placeholder{color: currentColor;}
+:-moz-placeholder{color:currentColor;/* For Firefox 18- */}
+::-moz-placeholder{color:currentColor;/* For Firefox 19+ */}
+:-ms-input-placeholder{color:currentColor;}
+
+.eng-lookup-field > label,
+.eng-file-field > label {
+    -webkit-transform: translate3d(0,6px,0) scale(.75);
+    transform: translate3d(0,6px,0) scale(.75);
+    transition: -webkit-transform cubic-bezier(.25,.8,.25,1) .4s,width cubic-bezier(.25,.8,.25,1) .4s;
+    transition: transform cubic-bezier(.25,.8,.25,1) .4s,width cubic-bezier(.25,.8,.25,1) .4s;
+    width: calc((100% - 18px) / .75);
+    zoom: 0.75;
+}
+.eng-file-img-preview {
+    width: 30px;
+    height: 30px;
+}
+
+.engDashboardGrid {
+    margin: 10px;
+}
+
+.engDashboardElement {
+    overflow: auto;
+    border: solid 1px rgba(128, 128, 128, 0.59);
+    border-radius: 10px;
+}
+
+.engDashboardElement  figure {
+}
+.engDashboardElement figcaption {
+    flex: 1;
+}
+.engDashboardElement figcaption > md-toolbar {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    zoom: 0.9;
+}
+
+.engDashboardElement eng-embedded-activity {
+    position: absolute;
+    top: 48px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+}
+
+.resultsViewContainer {
+    overflow: auto;
+}
+.resultsViewContainer.absoluteLayout {
+    position: absolute;
+    top: 64px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+
+.el-tpl-value {
+	margin-right: 0.5em;
+}

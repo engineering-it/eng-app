@@ -1,0 +1,65 @@
+
+<div layout="row" layout-wrap class="std-badges-view" >
+
+    <div flex="50" flex-lg="33" flex-md="50" flex-sm="100"
+         ng-repeat="item in pageItems">
+
+        <md-card ng-click="itemAction(item,'open')" class="std-badge">
+
+            <md-toolbar class="md-primary md-hue-4">
+                <div class="md-toolbar-tools">
+                    <div layout="column">
+                        <h2 eng-display-entity-property
+                            entity-bean="item"
+                            entity-model="entityDef"
+                            property-name="itemTitleProperty(item)"  >
+                        </h2>
+                        <span eng-display-entity-property
+                              entity-bean="item"
+                              entity-model="entityDef"
+                              property-name="itemSubtitleProperty(item)"
+                              class="subheader"
+                        />
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <div layout="row" layout-padding class="std-badge-body">
+                <div flex>
+                    <span eng-display-entity-property
+                          ng-repeat="property in itemProperties(item)"
+                          entity-bean="item"
+                          entity-model="entityDef"
+                          property-name="property"
+                          show-label="true"
+                          style="margin-right:10px;"
+                    />
+                </div>
+                <img ng-if="itemImgSrc(item)" ng-src="{{itemImgSrc(item)}}" class="eng-item-img">
+            </div>
+
+            <md-card-actions layout="row" layout-align="end center" ng-click="$event.stopPropagation()">
+                <md-checkbox ng-if="itemsSelectable()" ng-model="item._selected">
+                </md-checkbox>
+                <md-button ng-repeat="itemAct in getItemActions(item)"
+                           ng-hide="itemAct.mainAction"
+                           ng-class="itemAct.class"
+                           ng-click="itemAction(item,itemAct.name,itemAct)">
+                    <md-icon ng-md-icon icon="{{itemAct.icon}}"></md-icon>
+                    <md-tooltip>{{itemAct.tooltip}}</md-tooltip>
+                </md-button>
+
+                <eng-include
+                        ng-repeat="extraItem in getExtraItems(item) track by $index"
+                        directive="{{extraItem}}">
+                </eng-include>
+
+            </md-card-actions>
+        </md-card>
+
+    </div>
+
+</div>
+
+
+

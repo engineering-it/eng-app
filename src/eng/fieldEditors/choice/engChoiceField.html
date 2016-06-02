@@ -1,0 +1,44 @@
+<md-input-container flex
+                    class="md-block md-input-has-value">
+
+    <label>{{label()}}</label>
+
+	<div ng-if="!fieldModel.multiple"
+		 layout="row">
+		<div>
+		    <md-radio-group ng-model="value"
+		                    ng-model-options="{ getterSetter: true }"
+		                    layout="row"
+		                    layout-wrap
+		                    style="padding-top: 10px;">
+		        <md-radio-button ng-repeat="choice in choices()"
+		                         ng-disabled="isFieldReadonly()"
+		                         value="{{choice.value}}"
+		                         class="md-primary">
+		            {{choice.text}}
+		            <md-tooltip>{{choice.tooltip}}</md-tooltip>
+		        </md-radio-button>
+		    </md-radio-group>
+		</div>
+
+		<div>
+			<md-button ng-if="fieldModel.cleanable"
+					   ng-disabled="!beanModel[fieldModel.propertyName]"
+					   ng-click="clearSelection()"
+					   class="md-primary">
+				<md-icon ng-md-icon icon="cancel"></md-icon>
+				<md-tooltip>Pulisci</md-tooltip>
+	        </md-button>
+	    </div>
+    </div>
+
+   	<div ng-if="fieldModel.multiple">
+   		<md-checkbox ng-repeat="choice in choices()"
+               		 ng-checked="isSelectedChoice(choice)" ng-click="toggleSelectionChoice(choice)">
+        	{{choice.text}}
+        	<md-tooltip>{{choice.tooltip}}</md-tooltip>
+       </md-checkbox>
+   	</div>
+
+    <div class="hint">{{fieldModel.propertyHints}}</div>
+</md-input-container>

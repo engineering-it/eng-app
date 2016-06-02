@@ -1,0 +1,25 @@
+<div flex class="eng-field">
+    <md-input-container flex
+                        class="md-block md-input-has-value-always">
+        <label>{{label()}}</label>
+        <div layout="row">
+            <md-slider class="md-primary"
+                       flex
+                       ng-model="value"
+                       ng-model-options="{ getterSetter: true }"
+                       min="{{fieldModel.numberMin||0}}"
+                       max="{{fieldModel.numberMax||100}}"
+                       step="{{fieldModel.numberStep||1}}"
+                       ng-readonly="isFieldReadonly()">
+            </md-slider>
+            <input class="eng-number-input" type="number"
+                   ng-model="value"
+                   ng-model-options="{ getterSetter: true }"
+                   min="{{fieldModel.numberMin||0}}"
+                   max="{{fieldModel.numberMax||100}}"
+                   step="{{fieldModel.numberStep||1}}"
+                   ng-readonly="isFieldReadonly()">
+        </div>
+        <div class="hint">{{fieldModel.propertyHints}}</div>
+    </md-input-container>
+</div>

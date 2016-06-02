@@ -1,0 +1,23 @@
+
+<eng-display-item-img 
+	item="page.mainObject" 
+	img-src-fn="mainObjectImgSrcFn(item)"
+	page="page">
+</eng-display-item-img>
+
+<div eng-property-template
+	entity-bean="page.mainObject"
+	template="page.pageDef.displayMainObjectProperties"
+>
+</div>
+
+<span flex></span>
+
+<md-button ng-if="hasList()" ng-click="prev()" class="md-icon-button md-raised md-warn">
+    <md-icon ng-md-icon icon="keyboard_arrow_left" ></md-icon>
+    <md-tooltip>Precedente</md-tooltip>
+</md-button>
+<md-button ng-if="hasList()" ng-click="next()" class="md-icon-button md-raised md-warn">
+    <md-icon ng-md-icon icon="keyboard_arrow_right" ></md-icon>
+    <md-tooltip>Successivo</md-tooltip>
+</md-button>

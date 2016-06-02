@@ -1,0 +1,27 @@
+<eng-form flex layout-fill>
+
+    <field-editor
+            property-model="{
+                propertyName: 'currentTheme',
+                propertyLabel: 'Tema Corrente',
+                propertyHints: 'Tema dell\'applicazione',
+                propertyType: 'CHOICE',
+                choicesValues: availableApplicationThemes
+            }"
+            bean-model="editItem">
+    </field-editor>
+
+	<div style="position:absolute; bottom: 15px; right: 15px;">
+		<md-button class="md-fab md-primary"
+	               ng-click="createNewTheme()">
+	        <md-icon ng-md-icon icon="add"></md-icon>
+	        <md-tooltip>Crea un nuovo tema</md-tooltip>
+	    </md-button>
+	
+		<md-button class="md-fab md-primary"
+	               ng-click="showThemes()">
+	        <md-icon ng-md-icon icon="list"></md-icon>
+	        <md-tooltip>Visualizza i temi</md-tooltip>
+	    </md-button>
+	</div>
+</eng-form>

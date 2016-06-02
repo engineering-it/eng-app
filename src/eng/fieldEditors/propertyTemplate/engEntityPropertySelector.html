@@ -1,0 +1,15 @@
+
+<div layout="row" layout-align="start center">
+
+	<md-select ng-model="property.propertyName"  >
+	 	<md-option ng-repeat="prop in sourceEntityProperties" value="{{prop.value}}">
+	   	{{prop.text}} - {{prop.desc}}
+	 	</md-option>
+	</md-select>
+	
+	<eng-entity-property-selector
+		ng-if="property.lookup" 
+		property="property.lookup">
+	</eng-entity-property-selector>
+
+</div>

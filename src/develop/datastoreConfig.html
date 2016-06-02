@@ -1,0 +1,40 @@
+
+<!--
+
+<md-button ng-click="launchCodeExport()">
+    Export Current Localstore Data
+    <md-icon ng-md-icon icon="file_download" >
+    </md-icon>
+    <md-tooltip>Export Current Localstore Data</md-tooltip>
+</md-button>
+
+<md-button ng-click="launchCodeImport()">
+    Import App into Localstore Data
+    <md-icon ng-md-icon icon="file_upload" >
+    </md-icon>
+    <md-tooltip>Import App into Localstore Data</md-tooltip>
+</md-button>
+
+<md-button ng-click="launchCodeImportRestService()">
+    Import App Data into RestServiceStore
+    <md-icon ng-md-icon icon="file_upload" >
+    </md-icon>
+    <md-tooltip>Import App Data into RestServiceStore </md-tooltip>
+</md-button>
+
+-->
+
+<md-input-container class="md-block">
+    <label>Url base per il restservicestore</label>
+    <div layout="row">
+        <input value="{{getConfigKeyValue('restservicestore-baseUrl')}}"
+               ng-readonly="'true'"
+               type="text"
+               flex/>
+        <md-button class="md-primary md-raised" ng-click="showPromptCambiaUrl($event,'restservicestore-baseUrl')"  >
+            Cambia Url
+        </md-button>
+    </div>
+</md-input-container>
+
+

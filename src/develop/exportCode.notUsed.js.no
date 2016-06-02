@@ -1,0 +1,83 @@
+
+/*
+Codice per l'export delle pagine selezionate
+Appunti-- non funzionante
+ */
+
+var launchCodeExport = function() {
+
+    var addActivities = function(added,toAddActivities,discoveredEntities) {
+        var promises = [];
+        while(toAddActivities.length>0) {
+
+            var adding = toAddActivities.splice(0,1);
+            if (added.indexOf(adding)!=-1) {
+                continue;
+            }
+            added.push(adding);
+
+            var promise = engApplication.getActivityDef(adding).then(function(activityDef){
+
+                if (activityDef.entity) {
+                    if (discoveredEntities.indexOf(activityDef.entity)==-1) {
+                        discoveredEntities.push(activityDef.entity);
+                    }
+                }
+                if (activityDef.openItemActivity) {
+                    if (added.indexOf(activityDef.openItemActivity)==-1) {
+                        toAddActivities.push(activityDef.openItemActivity);
+                    }
+                }
+
+                code.push("\n\t\tengApplicationProvider.addActivity(\n");
+                code.push(angular.toJson(activityDef,true));
+                code.push(");\n");
+
+            });
+            promises.push(promise);
+        }
+
+        return $q.all(promises).then(function(){
+            if (toAddActivities.length>0) {
+                return addActivities(added,toAddActivities,discoveredEntities);
+            } else {
+                return;
+            }
+        });
+    };
+
+
+    var selectedPages = $scope.getCurrentSelection();
+    var moduleName = "MyExpModule";
+    var toAddActivities = [];
+    var toAddEntities = [];
+    var code = [];
+
+    code.push("'use strict';\n\n");
+    code.push("angular.module('",moduleName,"',['engModule'])\n");
+    code.push("\t.config(['engApplicationProvider',function(engApplicationProvider) {\n");
+
+    for (var i=0; i<selectedPages.length; i++) {
+        var pageDef = selectedPages[i];
+
+        pageDef.activities.forEach(function(val){
+            if (toAddActivities.indexOf(val)==-1) {
+                toAddActivities.push(val);
+            }
+        });
+
+        code.push("\n\t\tengApplicationProvider.addPage(\n");
+        code.push(angular.toJson(pageDef,true));
+        code.push(");\n");
+    }
+
+    var addedActivities = [];
+    return addActivities(addedActivities,toAddActivities,toAddEntities).then(function(){
+
+        code.push("\t}])");
+        code.push(";");
+        engFileService.serveForDownload(code);
+
+    });
+
+};

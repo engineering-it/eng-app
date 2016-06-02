@@ -1,0 +1,18 @@
+
+<eng-form name="editForm" flex layout-fill>
+
+   <div ng-repeat="propertyModel in propertyModels" class="eng-form-row">
+        <field-editor
+                ng-if="!isEditing(propertyModel)"
+                property-model="propertyModel"
+                bean-model="editItem"
+                show-edit-property-model="true"
+                on-edit-property-model="startEditProperty">
+        </field-editor>
+    </div>
+
+</eng-form>
+
+
+
+

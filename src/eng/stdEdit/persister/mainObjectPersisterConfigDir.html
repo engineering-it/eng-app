@@ -1,0 +1,14 @@
+
+<p>
+Questo Persister salva e ccarica l'oggetto direttamente dalla proprietà sotto indicata del
+mainObject della Pagina. Al salvataggio viene salvato tutto il mainObject.
+</p>
+
+<field-editor
+        property-model="{
+                    propertyName: 'mainObjectPropertyName',
+                    propertyLabel: 'Nome Proprietà sul Parent',
+                    propertyHints: 'Nome della proprietà sul mainObject dove viene memorizzato l\'editItem (se vuoto l\'editItem è il mainObject)'
+                }"
+        bean-model="persisterConfig">
+</field-editor>

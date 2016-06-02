@@ -1,0 +1,25 @@
+<md-content layout="column"
+            flex
+            layout-padding>
+
+  <md-input-container class="md-block">
+      <label>Url Servizi</label>
+      <input ng-model="appConfig.urlServizi"
+             name="urlServizi"
+             type="text"
+             required >
+  </md-input-container>
+
+    <div layout="row" >
+        <div>
+            <p>
+                {{'LANGUAGE' | translate}} {{currLang()}}
+            </p>
+        </div>
+        <md-button type="button" class="md-raised md-primary" ng-click="changeLanguage()">
+            Change
+        </md-button>
+    </div>
+
+
+</md-content>

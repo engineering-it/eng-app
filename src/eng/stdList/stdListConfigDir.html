@@ -1,0 +1,277 @@
+
+<field-editor
+        property-model="{
+                    propertyName: 'entity',
+                    propertyLabel: 'Entità',
+                    propertyHints: 'Entità di cui mostrare la lista',
+                    propertyType: 'LOOKUP',
+                    refEntityName: 'entities',
+                    refEntityListActivity: 'entitiesList',
+                    refEntityViewActivity: 'entityEdit',
+                    lookupKey: 'name',
+                    lookupShowedProperty: 'name'
+                }"
+        bean-model="activityDef">
+</field-editor>
+
+<md-tabs md-dynamic-height md-border-bottom md-autoselect>
+    <md-tab label="Azioni">
+        <div layout-padding>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'openItemActivity',
+                    propertyLabel: 'Open Item Activity',
+                    propertyHints: 'Activity da usare quando viene fatto \'open\' su un item',
+                    propertyType: 'LOOKUP',
+                    refEntityName: 'activities',
+                    refEntityListActivity: 'activitiesList',
+                    refEntityViewActivity: 'activityEdit',
+                    lookupKey: 'name',
+                    lookupShowedProperty: 'name'
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'openItemPage',
+                    propertyLabel: 'Open Item Page',
+                    propertyHints: 'Page da usare quando viene fatto \'open\' su un item (alternativa a \'Open Item Activity\')',
+                    propertyType: 'LOOKUP',
+                    refEntityName: 'pages',
+                    refEntityListActivity: 'pagesList',
+                    refEntityViewActivity: 'pageEdit',
+                    lookupKey: 'name',
+                    lookupShowedProperty: 'name'
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+			<field-editor
+		           property-model="{
+		           		propertyName: 'hideAddButton',
+		           		propertyLabel: 'Hide add button',
+		           		propertyHints: 'Nasconde il bottone che aggiunge nuovi elementi alla lista',
+		           		propertyType: 'BOOLEAN',
+		           		propertyValue: true
+		           }"
+		           bean-model="activityDef">
+		   	</field-editor>
+
+			<field-editor
+		           property-model="{
+		           		propertyName: 'nakedList',
+		           		propertyLabel: 'Naked list',
+		           		propertyHints: 'Imposta la lista come minimale, senza informazioni/funzionalità di testata',
+		           		propertyType: 'BOOLEAN'
+		           }"
+		           bean-model="activityDef">
+		   	</field-editor>
+
+            <field-editor
+                    property-model="{
+	                    propertyName: 'itemsActions',
+	                    propertyLabel: 'Azioni sui risultati',
+	                    propertyHints: 'Azioni disponibili sui risultati mostrati nella lista',
+	                    propertyType: 'ARRAY',
+	                    sortable: true,
+	                    elementTemplate: '{{element.name}}',
+	                    itemBean: {
+	                        properties: [{
+	                            propertyName: 'name',
+	                            propertyLabel: 'Nome',
+	                            propertyHints: 'Nome univoco dell\'azione'
+	                        },{
+	                            propertyName: 'icon',
+	                            propertyLabel: 'Icona',
+	                            propertyHints: 'Icona associata all\'azione',
+	                            propertyType: 'ICON'
+	                        },{
+	                            propertyName: 'tooltip',
+	                            propertyLabel: 'Tooltip',
+	                            propertyHints: 'Tooltip associata all\'azione'
+	                        },{
+	                            propertyName: 'class',
+	                            propertyLabel: 'Class',
+	                            propertyHints: 'Classe css (\'md-fab md-mini md-primary\')'
+	                        },{
+	                            propertyName: 'fn',
+	                            propertyLabel: 'Funzione js',
+	                            propertyHints: 'Codice js eseguito all\'attivazione: function(item,activity)..',
+	                            propertyType: 'CODE',
+	                            codeType: 'javascript'
+	                        },{
+	                            propertyName: 'fnVisibility',
+	                            propertyLabel: 'Funzione js',
+	                            propertyHints: 'Codice js eseguito per il controllo della visibilità (visibile Sì/No) dell\'azione: function(item)..return true/false',
+	                            propertyType: 'CODE',
+	                            codeType: 'javascript'
+	                        },{
+	                            propertyName: 'fnDisabling',
+	                            propertyLabel: 'Funzione js',
+	                            propertyHints: 'Codice js eseguito per il controllo della disabilitazione (disabilitata Sì/No) dell\'azione: function(item)..return true/false',
+	                            propertyType: 'CODE',
+	                            codeType: 'javascript'
+	                        }]
+	                    }
+	                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <field-editor
+                    property-model="{
+	                    propertyName: 'sortings',
+	                    propertyLabel: 'Ordinamenti dei risultati',
+	                    propertyHints: 'Ordinamenti disponibili sui risultati mostrati nella lista',
+	                    propertyType: 'ARRAY',
+	                    sortable: true,
+	                    elementTemplate: '{{element.name}}',
+	                    itemBean: {
+	                        properties: [{
+	                            propertyName: 'name',
+	                            propertyLabel: 'Nome',
+	                            propertyHints: 'Nome univoco dell\'ordinamento'
+	                        },{
+	                            propertyName: 'icon',
+	                            propertyLabel: 'Icona',
+	                            propertyHints: 'Icona associata all\'ordinamento',
+	                            propertyType: 'ICON'
+	                        },{
+	                            propertyName: 'tooltip',
+	                            propertyLabel: 'Tooltip',
+	                            propertyHints: 'Tooltip associata all\'ordinamento'
+	                        },{
+	                        	propertyName: 'sortingProperty',
+	                        	propertyLabel: 'Proprietà di ordinamento',
+	                        	propertyHints: 'Proprietà dell\'entità da utilizzare per l\'ordinamento dei risultati',
+	                        	propertyType: 'CHOICE',
+	                        	choicesValues: entityProperties
+	                        },{
+	                            propertyName: 'fn',
+	                            propertyLabel: 'Funzione js',
+	                            propertyHints: 'Codice js eseguito all\'attivazione: function(item1,item2)..',
+	                            propertyType: 'CODE',
+	                            codeType: 'javascript'
+	                        }]
+	                    }
+	                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+        </div>
+    </md-tab>
+
+    <md-tab label="Visualizzazione">
+        <div layout-padding>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'itemTitleProperty',
+                    propertyLabel: 'Titolo Item',
+                    propertyHints: 'Proprietà dell\'entità da mostrare nel titolo dell\'item',
+                    propertyType: 'CHOICE',
+                    choicesValues: entityProperties,
+                    cleanable: true
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'itemSubtitleProperty',
+                    propertyLabel: 'Sottotitolo Item',
+                    propertyHints: 'Proprietà dell\'entità da mostrare nel titolo secondario dell\'item',
+                    propertyType: 'CHOICE',
+                    choicesValues: entityProperties,
+                    cleanable: true
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'showItemProperties',
+                    propertyLabel: 'Body Item',
+                    propertyHints: 'Lista di proprietà dell\'entità da mostrare nel corpo dell\'item',
+                    propertyType: 'CHOICE',
+                    choicesValues: entityProperties,
+                    multiple: true
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+			<field-editor
+                    property-model="{
+	                    propertyName: 'itemImgSrcFn',
+	                    propertyLabel: 'Immagine Item',
+	                    propertyHints: 'Funzione js che ritorna l\'img-src da usare per un\'immagine. function(item,activity)..',
+	                    propertyType: 'CODE',
+	                    codeType: 'javascript'
+	                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'resultsViews',
+                    propertyLabel: 'Viste sui risultati',
+                    propertyHints: 'Configurazione delle viste da usare sui risultati (se lasciato vuoto vengono selezionate le viste di default)',
+                    propertyType: 'ARRAY',
+                    elementTemplate: '{{element.resultViewName}}',
+                    itemBean: {
+                        properties: [{
+                            propertyName: 'resultViewName',
+                            propertyLabel: 'Vista',
+                            propertyHints: 'Tipo di vista sui risultati',
+                            propertyType: 'CHOICE',
+                            choicesValues: resultsViewsChoices
+                        },{
+                            propertyName: 'initial',
+                            propertyLabel: 'Iniziale',
+                            propertyHints: 'Se questa è la vista iniziale',
+                            propertyType: 'BOOLEAN'
+                        }]
+                    }
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+        </div>
+    </md-tab>
+
+    <md-tab label="Dati">
+        <div layout-padding>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'loader',
+                    propertyLabel: 'Loader',
+                    propertyHints: 'Configurazione che permette comportamenti diversi del retrieve degli elementi nella lista',
+                    propertyType: 'CHOICE',
+                    choicesValues: possibleListLoaders
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+            <eng-include
+                    directive="{{loaderConfigDirective}}"
+                    include-attr-loader-config="activityDef.loaderConfig">
+            </eng-include>
+
+            <field-editor
+                    property-model="{
+                    propertyName: 'filters',
+                    propertyLabel: 'Filtri di ricerca fissi della maschera',
+                    propertyHints: 'Oggetto json con chiave=\'nome filtro\' valore=\'espressione valutata nel momento della ricerca\'',
+                    propertyType: 'CODE',
+                    codeType: 'javascript'
+                }"
+                    bean-model="activityDef">
+            </field-editor>
+
+        </div>
+    </md-tab>
+</md-tabs>
+
+

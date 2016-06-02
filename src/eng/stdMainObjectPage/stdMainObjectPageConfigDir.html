@@ -1,0 +1,35 @@
+
+<field-editor
+    property-model="{
+        propertyName: 'mainObjectEntity',
+        propertyLabel: 'Entità MainObject',
+        propertyHints: 'Tipo di Entità del MainObject',
+        propertyType: 'LOOKUP',
+        refEntityName: 'entities',
+        refEntityListActivity: 'entitiesList',
+        refEntityViewActivity: 'entityEdit',
+        lookupKey: 'name'
+    }"
+    bean-model="pageDef">
+</field-editor>
+ 
+<eng-property-template-field
+	field-model="{
+		propertyName: 'displayMainObjectProperties',
+        propertyLabel: 'Proprietà visualizzate',
+        propertyHints: 'Lista di proprietà dell\'entità da mostrare nell\'header della pagina',
+        sourceEntity: pageDef.mainObjectEntity
+	}"
+	bean-model="pageDef">
+</eng-property-template-field>
+
+<field-editor
+      property-model="{
+         propertyName: 'itemImgSrcFn',
+         propertyLabel: 'Immagine Item',
+         propertyHints: 'Funzione js che ritorna l\'img-src da usare per un\'immagine. function(item,page)..',
+         propertyType: 'CODE',
+         codeType: 'javascript'
+      }"
+      bean-model="pageDef">
+</field-editor>

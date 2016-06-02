@@ -1,0 +1,24 @@
+<field-editor
+        property-model="{
+                propertyName: 'refEntityEditActivity',
+                propertyLabel: 'Activity di edit dell\'elemento',
+                propertyHints: 'Activity usata per l\'edit su maschera separata',
+                propertyType: 'LOOKUP',
+                refEntityName: 'activities',
+                refEntityListActivity: 'activitiesList',
+                lookupKey: 'name',
+                lookupShowedProperty: 'name'
+            }"
+        bean-model="propertyModel">
+</field-editor>
+
+<field-editor
+        property-model="{
+                propertyName: 'beanTemplate',
+                propertyLabel: 'Item Template',
+                propertyHints: 'Template usato per visualizzare il Bean (\'riferisci il bean con {{bean}}\')',
+                propertyType: 'CODE',
+                codeType: 'html'
+            }"
+        bean-model="propertyModel">
+</field-editor>

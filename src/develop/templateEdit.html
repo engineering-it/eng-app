@@ -1,0 +1,41 @@
+<eng-form flex layout-fill style="overflow:auto">
+
+    <field-editor
+            property-model="{
+                    propertyName: 'name',
+                    propertyLabel: 'Nome',
+                    propertyHints: 'nome univoco del template'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+    <field-editor
+            property-model="{
+                    propertyName:'description',
+                    propertyLabel: 'Descrizione',
+                    propertyHints: 'Breve descrizione del contenuto del template'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+    <eng-code-edit-field
+         field-model="{
+            propertyName: 'content',
+            propertyLabel: 'Contenuto',
+            propertyHints: 'Contenuto html del template',
+            codeType: 'html',
+         }"
+         bean-model="editItem">
+    </eng-code-edit-field>
+
+    <field-editor
+            property-model="{
+                    propertyName:'published',
+                    propertyLabel: 'Pubblicato',
+                    propertyHints: 'I template pubblicati sono inclusi nell\'applicazione',
+                    propertyType: 'BOOLEAN'
+                }"
+            bean-model="editItem">
+    </field-editor>
+
+</eng-form>

@@ -1,0 +1,26 @@
+<div flex class="eng-field">
+    <section class="list-field-container md-whiteframe-z1 eng-field">
+
+        <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools">
+
+                <h2>{{label()}}</h2>
+                <span class="list-field-hints">{{ fieldModel.propertyHints }}</span>
+                <span flex></span>
+
+            </div>
+        </md-toolbar>
+
+        <md-content layout-padding>
+
+            <div ng-repeat="innerBeanPropertyModel in fieldModel.beanProperties">
+                <field-editor
+                        property-model="innerBeanPropertyModel"
+                        bean-model="getValue()">
+                </field-editor>
+            </div>
+
+        </md-content>
+
+    </section>
+</div>

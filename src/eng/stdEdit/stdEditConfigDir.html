@@ -1,0 +1,31 @@
+
+<field-editor
+        property-model="{
+                    propertyName: 'entity',
+                    propertyLabel: 'Entità',
+                    propertyHints: 'Entità dell\'elemento di edit',
+                    propertyType: 'LOOKUP',
+                    refEntityName: 'entities',
+                    refEntityListActivity: 'entitiesList',
+                    refEntityViewActivity: 'entityEdit',
+                    lookupKey: 'name'
+                }"
+        bean-model="activityDef">
+</field-editor>
+
+<field-editor
+        property-model="{
+                    propertyName: 'persister',
+                    propertyLabel: 'Persister',
+                    propertyHints: 'Configurazione che permette comportamenti diversi della maschera di Edit',
+                    propertyType: 'CHOICE',
+                    choicesValues: possibleEditPersisters
+                }"
+        bean-model="activityDef">
+</field-editor>
+
+<eng-include
+        directive="{{persisterConfigDirective}}"
+        include-attr-persister-config="activityDef.persisterConfig">
+</eng-include>
+

@@ -1,0 +1,39 @@
+
+<eng-list-field
+        field-model="{
+                propertyName: 'choicesValues',
+                propertyLabel: 'Valori',
+                propertyHints: 'Lista dei valori da cui scegliere',
+                elementTemplate: '{{element.value}} - {{element.text}}',
+                enableDefaultElement: true
+            }"
+        bean-model="propertyModel">
+
+    <eng-text-field
+            field-model="{
+                propertyName: 'value',
+                propertyLabel: 'Valore Elemento',
+                propertyHints: 'Valore dell\'elemento di scelta'
+            }"
+            bean-model="engListFieldElement">
+    </eng-text-field>
+
+    <eng-text-field
+            field-model="{
+                propertyName: 'text',
+                propertyLabel: 'Testo',
+                propertyHints: 'Testo visualizzato dell\'elemento di scelta'
+            }"
+            bean-model="engListFieldElement">
+    </eng-text-field>
+
+    <eng-text-field
+            field-model="{
+                propertyName: 'tooltip',
+                propertyLabel: 'Tooltip',
+                propertyHints: 'Descrizione Aggiuntiva dell\'elemento di scelta'
+            }"
+            bean-model="engListFieldElement">
+    </eng-text-field>
+
+</eng-list-field>

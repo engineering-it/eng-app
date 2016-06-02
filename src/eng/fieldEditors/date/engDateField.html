@@ -1,0 +1,10 @@
+<md-input-container flex
+                    class="md-block">
+    <label>{{label()}}</label>
+    <md-icon ng-md-icon icon="today"></md-icon>
+    <input type="date"
+           ng-readonly="isFieldReadonly()"
+           ng-model="value"
+           ng-model-options="{ getterSetter: true }">
+    <div class="hint">{{fieldModel.propertyHints}}</div>
+</md-input-container>

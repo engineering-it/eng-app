@@ -1,0 +1,106 @@
+<eng-form flex layout-fill padding="false">
+
+        <md-tabs flex layout-fill md-border-bottom md-autoselect>
+                <md-tab label="Generali">
+                        <div layout-padding>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'name',
+                                            propertyLabel: 'Nome',
+                                            propertyHints: 'nome univoco dell\'activity'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName:'description',
+                                            propertyLabel: 'Descrizione',
+                                            propertyHints: 'Breve descrizione dell\'activity'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'title',
+                                            propertyLabel: 'Titolo',
+                                            propertyHints: 'Titolo visibile nel breadcrumb'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'titleTpl',
+                                            propertyLabel: 'Template Titolo',
+                                            propertyHints: 'Titolo dinamico visibile nel breadcrumb (se definito ha precedenza su &quot;Title&quot;)'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'icon',
+                                            propertyLabel: 'Icona',
+                                            propertyHints: 'Icona associata all\'activity (scegli da: https://klarsys.github.io/angular-material-icons/)',                    
+                                            propertyType: 'ICON'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                        </div>
+                </md-tab>
+                <md-tab label="Tipologia">
+                        <div layout-padding>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'extends',
+                                            propertyLabel: 'Extends',
+                                            propertyHints: 'Activity di base da cui derivare questa',
+                                            propertyType: 'CHOICE',
+                                            choicesValues: possibleActivityExtensions
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <eng-include
+                                        directive="{{extendActivityConfigDirective}}"
+                                        include-attr-activity-def="editItem">
+                                </eng-include>
+
+                        </div>
+                </md-tab>
+                <md-tab label="Programming">
+                        <div layout-padding>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'controller',
+                                            propertyLabel: 'Controller',
+                                            propertyHints: 'Controller angular associato all\'activity'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                                <field-editor
+                                        property-model="{
+                                            propertyName: 'templateResource',
+                                            propertyLabel: 'Template',
+                                            propertyHints: 'Template html associato all\'activity (definito tra i templates)',
+                                            propertyType: 'LOOKUP',
+                                            refEntityName: 'templates',
+                                            refEntityListActivity: 'templatesList',
+                                            lookupKey: 'name',
+                                            lookupShowedProperty: 'name'
+                                        }"
+                                        bean-model="editItem">
+                                </field-editor>
+
+                        </div>
+                </md-tab>
+        </md-tabs>
+
+</eng-form>

@@ -1,0 +1,67 @@
+<md-toolbar>
+    <div class="md-toolbar-tools app-toolbar">
+
+        <md-button ng-if="isMenuEnabled()" ng-click="togglePageMenu()" class="md-icon-button">
+            <md-icon ng-md-icon icon="menu"></md-icon>
+        </md-button>
+
+        <md-icon ng-if="!currentPage().isRootPage()"
+                 ng-md-icon
+                 icon="more_horiz">
+        </md-icon>
+        <!--
+        <md-icon ng-if="!currentPage().isRootPage()"
+                 ng-md-icon
+                 icon="chevron_right">
+        </md-icon>
+        -->
+
+        <md-icon ng-md-icon
+                 icon="{{currentPage().icon||'folder'}}"
+                 style="margin-right:7px;">
+        </md-icon>
+        <p ng-repeat-start="activity in navStack()">
+            <eng-include
+                    template="{{activity.titleTpl}}"
+                    in-scope="activity.$scope" >
+            </eng-include>
+            <span ng-if="activity.dirtyCheck">*</span>
+        </p>
+        <md-icon ng-repeat-end
+                 ng-if="!isCurrent(activity)"
+                 ng-md-icon
+                 icon="chevron_right">
+        </md-icon>
+
+        <span style="flex-grow:1;"></span>
+
+        <md-button ng-repeat="activityAction in currentActivity().actions"
+                   ng-disabled="activityAction.enabled && !activityAction.enabled()"
+                   ng-click="doActivityAction(activityAction)"
+                   class="md-icon-button">
+            <md-icon ng-md-icon icon="{{activityAction.icon}}" ></md-icon>
+            <md-tooltip>{{activityAction.tooltip}}</md-tooltip>
+        </md-button>
+
+        <md-button ng-if="isBackEnabled()" ng-click="closeActivity()" class="md-icon-button">
+            <md-icon ng-md-icon icon="keyboard_arrow_left" ></md-icon>
+        </md-button>
+
+        <md-button ng-if="engApplication.offline" class="md-icon-button">
+            <md-icon ng-md-icon icon="signal_cellular_connected_no_internet_0_bar" >
+            </md-icon>
+            <md-tooltip>Offline</md-tooltip>
+        </md-button>
+
+    </div>
+    <div class="page Header" ng-if="isPageHeaderEnabled()" >
+        <eng-include directive="{{currentPage().pageDef.headerDirective}}"
+                     include-attr-layout-padding
+                     include-attr-page="currentPage()">
+        </eng-include>
+    </div>
+</md-toolbar>
+<md-progress-linear ng-if="loading()"
+                    class="loaderBar"
+                    md-mode="indeterminate">
+</md-progress-linear>

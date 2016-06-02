@@ -1,0 +1,13 @@
+{
+  "name": "engApp",
+  "version": "0.0.0",
+  "description": "eng client framework",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,46 @@
+<md-content layout="column" flex style="background-color: transparent;">
+
+    <md-grid-list
+            class="engDashboardGrid"
+            md-cols="4"
+            md-row-height="1:1"
+            md-gutter="10px">
+
+        <md-grid-tile ng-repeat="tile in tiles"
+                      md-rowspan="{{tile.span.row}}"
+                      md-colspan="{{tile.span.col}}"
+                      class="engDashboardElement">
+
+            <md-grid-tile-header layout="row">
+                <md-toolbar>
+                    <p>
+                        &nbsp;&nbsp;
+                        <eng-include
+                                template="{{tile.activity.titleTpl}}"
+                                in-scope="tile.activity.$scope" >
+                        </eng-include>
+                    </p>
+
+                    <span flex flex-grow></span>
+
+                    <md-button ng-repeat="activityAction in tileActivity(tile).actions"
+                               ng-disabled="activityAction.enabled && !activityAction.enabled()"
+                               ng-click="doTileActivityAction(tile,activityAction)"
+                               class="md-icon-button">
+                        <md-icon ng-md-icon icon="{{activityAction.icon}}" ></md-icon>
+                        <md-tooltip>{{activityAction.tooltip}}</md-tooltip>
+                    </md-button>
+                </md-toolbar>
+            </md-grid-tile-header>
+
+            <eng-embedded-activity
+                    container-activity="activity"
+                    activity-name="tile.activityName"
+                    bind-activity-to="tile.activity">
+            </eng-embedded-activity>
+
+        </md-grid-tile>
+
+    </md-grid-list>
+
+</md-content>

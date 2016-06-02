@@ -1,0 +1,195 @@
+
+<eng-form flex layout-fill padding="false">
+
+    <md-tabs flex layout-fill md-border-bottom md-autoselect>
+        <md-tab label="Generali">
+            <div layout-padding>
+
+                <field-editor
+                        property-model="{
+                        propertyName: 'name',
+                        propertyLabel: 'Nome',
+                        propertyHints: 'Nome univoco della pagina',
+                        isEntityKey: 'true'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName:'description',
+                        propertyLabel: 'Descrizione',
+                        propertyHints: 'Breve descrizione della pagina'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName: 'title',
+                        propertyLabel: 'Titolo',
+                        propertyHints: 'Titolo da visualizzare nel Breadcrumb'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName: 'icon',
+                        propertyLabel: 'Icona',
+                        propertyHints: 'Icona utilizzata nei menu (scegli da: https://klarsys.github.io/angular-material-icons/)',
+                        propertyType:  'ICON'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName:  'image',
+                        propertyLabel: 'Immagine',
+                        propertyHints: 'Immagine da visualizzare in HomePage',
+                        propertyType:  'IMG_EMBEDDED'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName: 'showInHomePage',
+                        propertyLabel: 'Mostra in HomePage',
+                        propertyType: 'BOOLEAN',
+                        propertyHints: 'Se Mostrare la pagina nella HomePage'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+                        propertyName: 'showInAppMenu',
+                        propertyLabel: 'Mostra in App Menu',
+                        propertyType: 'BOOLEAN',
+                        propertyHints: 'Se Mostrare la pagina nel menu globale'
+                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+            </div>
+
+        </md-tab>
+         <md-tab label="Tipologia">
+            <div layout-padding>
+
+                <field-editor
+                        property-model="{
+                            propertyName: 'extends',
+                            propertyLabel: 'Extends',
+                            propertyHints: 'Pagina di base da cui derivare questa',
+                            propertyType: 'CHOICE',
+                            choicesValues: possiblePageExtensions
+                        }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <eng-include
+                        directive="{{extendPageConfigDirective}}"
+                        include-attr-page-def="editItem">
+                </eng-include>
+
+            </div>
+        </md-tab>
+        <md-tab label="Programming">
+            <div layout-padding>
+
+                <field-editor
+                        property-model="{
+	                        propertyName: 'headerDirective',
+	                        propertyLabel: 'Header Directive',
+	                        propertyHints: 'Direttiva che mostra l\'header della pagina'
+	                    }"
+                        bean-model="editItem">
+                </field-editor>
+                    
+                <field-editor
+                        property-model="{
+	                        propertyName: 'controller',
+	                        propertyLabel: 'Controller',
+	                        propertyHints: 'Controller angular associato alla pagina'
+	                    }"
+                        bean-model="editItem">
+                </field-editor>
+
+                <field-editor
+                        property-model="{
+	                        propertyName: 'templateUrl',
+	                        propertyLabel: 'Template',
+	                        propertyHints: 'URL del template custom per la pagina'
+	                    }"
+                        bean-model="editItem">
+                </field-editor>
+                
+        	</div>
+        </md-tab>        
+        <md-tab label="Activities" layout-padding>
+
+            <div layout-padding>
+
+                <field-editor
+                        property-model="{
+                            propertyName: 'activities',
+                            propertyLabel: 'Activities',
+                            propertyHints: 'Activity da includere in questa Pagina',
+                            propertyType: 'ARRAY',
+                            elementTemplate: '{{element.activity}}',
+                            sortable: true,
+                            itemBean: {
+                                properties: [{
+                                    propertyName: 'activity',
+                                    propertyLabel: 'Activity',
+                                    propertyHints: 'Activity da includere nella pagina',
+                                    propertyType: 'LOOKUP',
+                                    refEntityName: 'activities',
+                                    refEntityListActivity: 'activitiesList',
+                                    refEntityViewActivity: 'activityEdit',
+                                    lookupKey: 'name',
+                                    lookupShowedProperty: 'name'
+                                },{
+                                    propertyName: 'initial',
+                                    propertyLabel: 'Iniziale',
+                                    propertyHints: 'Se questa è l\'Activity iniziale',
+                                    propertyType: 'BOOLEAN'
+                                },{
+                                    propertyName: 'params',
+                                    propertyLabel: 'Parametri',
+                                    propertyHints: 'Parametro di lancio'
+                                }]
+                            }
+                        }"
+                        bean-model="editItem">
+                </field-editor>
+
+           </div>
+
+        </md-tab>
+        <md-tab label="Profilatura">
+        	<div layout-padding>
+
+                <field-editor
+                        property-model="{
+                            propertyName: 'enabledRoles',
+                            propertyLabel: 'Ruoli abilitati',
+                            propertyHints: 'Ruoli abilitati alla visualizzazione della pagina (visibile a tutti se lasciato vuoto)',
+                            propertyType: 'LOOKUP',
+                            multiple: true,
+                            refEntityName: 'roles',
+                            refEntityListActivity: 'rolesList',
+                            lookupShowedProperty: 'name'
+                        }"
+                        bean-model="editItem">
+                </field-editor>
+
+            </div>
+        </md-tab>
+
+    </md-tabs>
+
+</eng-form>

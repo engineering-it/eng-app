@@ -1,0 +1,85 @@
+<md-content layout="column" flex style="overflow: hidden;">
+
+    <md-toolbar ng-if="!activity.activityDef.nakedList" class="md-primary md-hue-1">
+        <div class="md-toolbar-tools">
+
+            <md-button ng-click="toggleSearchSidenav()" class="md-icon-button">
+                <md-icon ng-md-icon icon="search"></md-icon>
+            </md-button>
+
+            <p class="toolbar-tools-label"> {{itemsNumber()}} Elementi</p>
+            
+			<md-button ng-if="hasPrevPage()" ng-click="prevPage()" class="md-icon-button">
+                <md-icon ng-md-icon icon="chevron_left"></md-icon>
+            </md-button>
+            <p class="toolbar-tools-label" ng-if="totalPages()>1" >Pagina {{currentPageNum+1}} di {{totalPages()}}</p>
+			<md-button ng-if="hasNextPage()" ng-click="nextPage()" class="md-icon-button">
+                <md-icon ng-md-icon icon="chevron_right"></md-icon>
+            </md-button>
+
+            <span flex></span>
+
+            <md-button ng-repeat="resultView in resultsViews"
+                       ng-click="selectView(resultView)"
+                       class="md-icon-button">
+                <md-icon ng-md-icon icon="{{resultView.icon}}"></md-icon>
+                <md-tooltip>{{resultView.tooltip}}</md-tooltip>
+            </md-button>
+            <md-button ng-click="search()" class="md-icon-button">
+                <md-icon ng-md-icon icon="refresh"></md-icon>
+            </md-button>
+
+        </div>
+    </md-toolbar>
+
+    <md-sidenav layout="column"
+                class="md-sidenav-left md-whiteframe-z2 wide-sidenav"
+                md-component-id="activity.id+'_searchSidenav'"
+                eval-attr-as-expr="mdComponentId" >
+
+        <md-content layout="column" flex flex-grow layout-padding>
+        	<md-toolbar>
+        		<div class="md-toolbar-tools">Ordinamenti: </div>
+        	</md-toolbar>
+
+			<div layout="row">
+	            <md-button ng-repeat="sorting in availableSortings"
+	                       ng-click="manageSorting(sorting)"
+	                       ng-class="{'md-primary': isAscendingActive(sorting) || isDescendingActive(sorting)}"
+	                       class="md-raised">
+	                <md-icon ng-md-icon icon="{{sorting.icon}}"></md-icon>
+	                <md-tooltip>{{sorting.tooltip}}</md-tooltip>
+	            	<md-icon ng-if="isAscendingActive(sorting)" ng-md-icon icon="arrow_upwards"></md-icon>
+	            	<md-icon ng-if="isDescendingActive(sorting)" ng-md-icon icon="arrow_downward"></md-icon>
+	            </md-button>
+	        </div>
+        </md-content>
+
+    </md-sidenav>
+
+    <section class="resultsViewContainer" ng-class="{
+            flowLayout: selectedResultView.flowLayout,
+            absoluteLayout: selectedResultView.absoluteLayout,
+        }">
+
+        <eng-include directive="{{selectedResultView.directive}}">
+        </eng-include>
+
+        <div style="height:100px;"></div>
+    </section>
+
+    <md-button class="md-fab md-primary"
+    		   ng-if="!activity.activityDef.hideAddButton"
+               ng-click="action('newItem')"
+               style="position:absolute; bottom: 15px; right: 15px;">
+        <md-icon ng-md-icon icon="add"></md-icon>
+        <md-tooltip>Crea un nuovo Elemento</md-tooltip>
+    </md-button>
+
+</md-content>
+
+
+
+
+
+
